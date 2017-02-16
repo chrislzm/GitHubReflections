@@ -1,47 +1,57 @@
 What happens when you initialize a repository? Why do you need to do it?
 
-- Git creates a .git directory in the directory you created the repository which
-  contains all of the meta data for the repository. You need to do this so that
-  git knows there's a repository and so it can manage it correctly.
+- Git creates a .git directory in the working directory (in which you created
+  the repository). This directory contains all of the meta data for the
+  repository. You need to do this in order for git to know there's a repository
+  in the working directory and for git to manage it correctly.
 
 How is the staging area different from the working directory and the repository?
 What value do you think it offers?
 
 - The staging area is a holding place for files you want to commit but haven't
   been committed to the repository yet. The working directory is the current
-  directory of files of which you don't necissarily want to commit all of them.
-  This is good because you may have some huge video files in the directory you
-  don't need to commit, or files that will never change, or unrelated files,
-  etc. This gives you more control.
+  directory of all files (within which may be some that you don't want to
+  commit). This is good because you may have some huge files in the directory
+  you don't want to commit, or files that will never change, or unrelated files,
+  or files you're not finished editing yet, etc. This gives you more control to
+  make commits that represent logical units of work.
 
 How can you use the staging area to make sure you have one commit per logical
 change?
 
-- This way we can add only the files we want to commit and ignore changes in
-  other files, to make commits more logical.
+- As "git add" is a manually entered command to add files to the staging area,
+  we ensure that only files related to a logical change will be committed
+  to the repository.
 
 What are some situations when branches would be helpful in keeping your history
 organized? How would branches help?
 
-- Branches would be useful when experimenting with adding a new feature or
-  changes to the app by not messing with the current working version of the app.
+- Branches would be useful when modifying the codebase in any way (e.g. fixing
+  a bug, adding a new feature, experimenting, etc.) where we don't want to
+  disturb the master version of the code. This becomes especially important
+  when collaborating with others on the same project--branches can allow for
+  each person to work independently, and then merge their changes (once
+  completed and tested) back into the master version for everyone else to use. 
 
 How do the diagrams help you visualize the branch structure?
 
-- It helps show how everything in the repository relates to each other, and
-  where some information might potentially get lost if its not in a branch, or
-  where things may conflict with each other in the future.
+- It helps show how commits in the repository relate to each other, where some
+  commits can get lost if they are not in a branch, and where commits may
+  conflict with each other in the future.
 
 What is the result of merging two branches together? Why do we represent it in
 the diagram the way we do?
 
 - The result of merging the two branches together is that the code is combined.
-  We show in the diagram because that's the easy way to show visually that two
-  branches were merged into one.
+  We show in the diagram because that's the easy way to show visually that the
+  tips (or latest commits) of branches were combined into a single new commit.
 
 What are the pros and cons of Git’s automatic merging vs. always doing merges
 manually?
 
 - Git's automatic merging saves a lot of time when combining changes bewteen two
-files. The cons are that when there are conflicts, you have to go through and
-resolve them manually. But you would have to do that anyway.
+  files. The cons are that when there are conflicts, you have to go through and
+  resolve them manually. But you would have had to do that anyway. Doing merges
+  manually is much more time consuming since you would have to visually compare
+  two files and copy/paste code, delete code, or modify code by hand. This also
+  introduces the possibility of mistakes and new bugs.
